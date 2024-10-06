@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Code Editor</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .editor {
+            background-color: #282c34;
+            color: #61dafb;
+            font-family: monospace;
+            padding: 20px;
+            height: 70vh;
+            width: 90vw;
+            border: 2px solid #61dafb;
+            border-radius: 8px;
+            resize: none;
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: border-color 0.3s;
+        }
+
+        .editor:focus {
+            border-color: #21b6f1;
+        }
+
+        button {
+            padding: 12px 24px;
+            background-color: #5e5e5e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #4285f4;
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #a9a9a9;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea class="editor" id="editor" spellcheck="false" placeholder="Write your JavaScript code here..."></textarea>
+    <button id="runBtn">RUN</button>
+
+    <footer>
+        <p>&copy; 2024 Tashif Iqbal. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const editor = document.getElementById("editor");
+        const runBtn = document.getElementById("runBtn");
+
+        runBtn.addEventListener("click", () => {
+            try {
+                eval(editor.value);
+            } catch (error) {
+                console.error("Error:", error);
+                alert("An error occurred: " + error.message);
+            }
+        });
+    </script>
+</body>
+
+</html>

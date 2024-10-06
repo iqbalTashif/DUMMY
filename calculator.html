@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #e0f7fa; 
+        }
+
+        .calculator {
+            width: 350px;
+            height: 500px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(6, 1fr);
+            gap: 2px;
+            background-color: #37474f; 
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .display {
+            grid-column-start: 1;
+            grid-column-end: 5;
+            border: 4px solid #455a64; 
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 10px;
+            font-size: 1.5em;
+            background-color: #eceff1; 
+            color: #37474f; 
+            border-radius: 5px;
+        }
+
+        .numberBtn {
+            font-weight: bold;
+            background-color: #90a4ae; 
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 20px;
+            font-size: 1.2em;
+            border-radius: 5px;
+        }
+
+        .operator {
+            background-color: #ff7043; 
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 20px;
+            font-size: 1.2em;
+            border-radius: 5px;
+        }
+
+        #calculateBtn {
+            grid-row-start: 5;
+            grid-row-end: 7;
+            grid-column-start: 4;
+            background-color: #ff7043; 
+            color: white;
+        }
+
+        .zeroBtn {
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+
+        button:hover {
+            background-color: #546e7a !important; 
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="display"><p>1+2*3=5</p></div>
+        <button class="operator" id="divideBtn">/</button>
+        <button class="operator" id="multiplyBtn">*</button>
+        <button class="operator" id="subtractBtn">-</button>
+        <button class="operator" id="modBtn">%</button>
+
+        <button class="numberBtn">7</button>
+        <button class="numberBtn">8</button>
+        <button class="numberBtn">9</button>
+        <button class="operator" id="addBtn">+</button>
+
+        <button class="numberBtn">4</button>
+        <button class="numberBtn">5</button>
+        <button class="numberBtn">6</button>
+        <button class="operator" id="backspaceBtn">(x)</button>
+
+        <button class="numberBtn">1</button>
+        <button class="numberBtn">2</button>
+        <button class="numberBtn">3</button>
+        <button class="operator" id="calculateBtn">=</button>
+
+        <button class="numberBtn zeroBtn">0</button>
+        <button class="numberBtn">.</button>
+    </div>
+</body>
+</html>
