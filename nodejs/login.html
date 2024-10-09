@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front-End Only Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #login-container {
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        #error-message {
+            color: red;
+            margin-top: 10px;
+        }
+
+        #welcome-section {
+            display: none;
+            margin-top: 20px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+
+        #welcome-message {
+            font-size: 20px;
+            color: #333;
+        }
+
+        #user-info {
+            font-size: 16px;
+            color: #555;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="login-container">
+        <h1>Login</h1>
+        
+        <div id="login-section">
+            <label for="username">Username:</label>
+            <input type="text" id="username" placeholder="Enter your username">
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Enter your password">
+            <button onclick="login()">Login</button>
+            <p id="error-message"></p>
+        </div>
+        
+        <div id="welcome-section">
+            <h2 id="welcome-message"></h2>
+            <p id="user-info"></p>
+        </div>
+    </div>
+
+    <script>
+        // Sample user data
+        const users = {
+            'Raju': { password: '1234', info: 'Raju is a project manager, enjoys trekking and football.' },
+            'Sita': { password: 'abcd', info: 'Sita is a software developer, loves painting and music.' },
+            'John': { password: '5678', info: 'John is a data analyst, interested in machine learning and AI.' }
+        };
+
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('error-message');
+
+            // Check if the user exists and password matches
+            if (users[username] && users[username].password === password) {
+                // Hide login section
+                document.getElementById('login-section').style.display = 'none';
+
+                // Show welcome section
+                document.getElementById('welcome-section').style.display = 'block';
+                document.getElementById('welcome-message').innerText = `Welcome, ${username}!`;
+                document.getElementById('user-info').innerText = users[username].info;
+            } else {
+                errorMessage.innerText = 'Invalid username or password';
+            }
+        }
+    </script>
+
+</body>
+</html>
